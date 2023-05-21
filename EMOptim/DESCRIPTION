@@ -6,6 +6,6 @@ Author: Alistair Dunn & Johanna Pierre
 Description: Electronic Monitoring Video Review Rate Optimisation. Pew Project: 2021-IF-02
 Maintainer: Alistair Dunn <Alistair.Dunn@OceanEnvironmental.co.nz>
 License: GLP v2.0. 
-RoxygenNote: 7.2.0
+RoxygenNote: 7.2.3
 Imports: SamplingStrata, foreach, doParallel
 Depends: R (>= 4.1.0), SamplingStrata, foreach, doParallel
