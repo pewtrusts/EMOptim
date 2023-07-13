@@ -16,7 +16,7 @@ It is recommended that if you are going to use this package, that you clone or f
 To install in R using devtools, use the following command in R
 
 ```r
-devtools::install_github("https://github.com/pewtrusts/EMOptim/", subdir="EmOptim")
+devtools::install_github("https://github.com/pewtrusts/EMOptim/", subdir="EMOptim")
 ```
 
 Copyright 2022 The Pew Charitable Trusts
