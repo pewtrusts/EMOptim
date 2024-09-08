@@ -2,5 +2,9 @@
 % Please edit documentation in R/EMoptim.r
 \docType{package}
 \name{EMoptim}
+\alias{EMoptim-package}
 \alias{EMoptim}
-\title{EMOptim: A package for computing the sampling cv and power of a sample for electrionic observer coverage optimisation}
+\title{EMOptim: A package for computing the sampling cv and power of a sample for electronic observer coverage optimisation}
+\description{
+Electronic Monitoring Video Review Rate Optimisation. Pew Project: 2021-IF-02
+}

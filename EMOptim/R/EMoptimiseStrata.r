@@ -6,7 +6,7 @@
 #' @param EM an EM object
 #' @param objective.labels The labels of the objective function to simulate and sample from (must be a vector of length > 1)
 #' @param new.strata.label The label for the optimised strata calculated by the EMoptimiseStrata()
-#' @param iter iter Maximum number of iterations (= generations) of the genetic algorithm (default is 200)
+#' @param iter iter Maximum number of iterations (= generations) of the genetic algorithm (default is 300)
 #' @param pops The dimension of each generations in terms of individuals (default is 50).
 #' @export
 #'

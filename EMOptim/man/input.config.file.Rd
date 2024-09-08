@@ -24,7 +24,7 @@ input.config.file(
 \item{file}{The name of the input file containing EM model configuration}
 }
 \description{
-This function reads a EM optimisation configuration file and returns a list object in R. Where each element is a command and subcommand from the EM definition  file
+This function reads a EM optimisation configuration file and returns a list object in R. Where each element is a command and subcommand from the EM definition file
 }
 \author{
 Alistair Dunn & Johanna Pierre

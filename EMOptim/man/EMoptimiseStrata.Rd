@@ -19,7 +19,7 @@ EMoptimiseStrata(
 
 \item{new.strata.label}{The label for the optimised strata calculated by the EMoptimiseStrata()}
 
-\item{iter}{iter Maximum number of iterations (= generations) of the genetic algorithm (default is 200)}
+\item{iter}{iter Maximum number of iterations (= generations) of the genetic algorithm (default is 300)}
 
 \item{pops}{The dimension of each generations in terms of individuals (default is 50).}
 }
