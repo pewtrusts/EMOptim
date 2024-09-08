@@ -1,4 +1,4 @@
-#' EMOptim: A package for computing the sampling cv and power of a sample for electrionic observer coverage optimisation
+#' EMOptim: A package for computing the sampling cv and power of a sample for electronic observer coverage optimisation
 #'
 #' @docType package
 #' @name EMoptim

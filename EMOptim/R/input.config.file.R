@@ -1,6 +1,6 @@
 #' Model configuration write function
 #'
-#' This function reads a EM optimisation configuration file and returns a list object in R. Where each element is a command and subcommand from the EM definition  file
+#' This function reads a EM optimisation configuration file and returns a list object in R. Where each element is a command and subcommand from the EM definition file
 #'
 #' @author Alistair Dunn & Johanna Pierre
 #' @param file The name of the input file containing EM model configuration
@@ -17,7 +17,7 @@
     #  object <- set.class(object,"new class")
     attributes(object)$class <- c(new.class, attributes(object)$class[attributes(object)$class != new.class])
     object
-  } 
+  }
   make.filename <- function(file, path) {
     if (path != "") {
       plc <- substring(path, nchar(path))
@@ -171,8 +171,8 @@
       } else {
         this_label <- temp[2]
         if (!quiet) print(paste("Reading command: '@", Command, "' with label '", this_label, "'", sep = ""), quote = FALSE)
-        if(exists(Command,where=ans)) {
-          if(exists(this_label,where=ans[[Command]])) {
+        if (exists(Command, where = ans)) {
+          if (exists(this_label, where = ans[[Command]])) {
             stop(paste0("The label (", this_label, ") is duplicated for the command '", Command, "'"))
           }
         }
@@ -244,7 +244,7 @@
   if (any(is.na(ans$base$table$data))) {
     stop("NAs found in base map. Use either 1 to indicate a valid cell, or 0 to exclude")
   }
-  if (any(!ans$base$table$data %in% c(0,1))) {
+  if (any(!ans$base$table$data %in% c(0, 1))) {
     stop("Base_map values must be either 0 or 1")
   }
   # Check objectives have correct parameters
@@ -321,39 +321,51 @@
     ans$species[[i]]$table$data[ans$base$table$data == 0] <- NA
   }
   # Check encounter definitions
-  for(i in 1:length(ans$encounter)) {
+  for (i in 1:length(ans$encounter)) {
     ENC <- names(ans$encounter)[i]
     if (casefold(ans$encounter[[i]]$type) %in% "binomial") {
-      if(!exists("p",ans$encounter[[i]]))
-        stop("Parameter 'p' must be specified for the binomial in the encounter definition with label '", ENC,"'")
+      if (!exists("p", ans$encounter[[i]])) {
+        stop("Parameter 'p' must be specified for the binomial in the encounter definition with label '", ENC, "'")
+      }
     } else if (casefold(ans$encounter[[i]]$type) %in% "lognormal") {
-      if(!exists("mu",ans$encounter[[i]]))
-        stop("Parameter 'mu' must be specified for the logormal in the encounter definition with label '", ENC,"'")
-      if(!exists("cv",ans$encounter[[i]]))
-        stop("Parameter 'cv' must be specified for the lognormal in the encounter definition with label '", ENC,"'")
+      if (!exists("mu", ans$encounter[[i]])) {
+        stop("Parameter 'mu' must be specified for the logormal in the encounter definition with label '", ENC, "'")
+      }
+      if (!exists("cv", ans$encounter[[i]])) {
+        stop("Parameter 'cv' must be specified for the lognormal in the encounter definition with label '", ENC, "'")
+      }
     } else if (casefold(ans$encounter[[i]]$type) %in% "negative_binomial") {
-      if(!exists("mu",ans$encounter[[i]]))
-        stop("Parameter 'mu' must be specified for the negative_binomial in the encounter definition with label '", ENC,"'")
-      if(!exists("theta",ans$encounter[[i]]))
-        stop("Parameter 'theta' must be specified for the negative_binomial in the encounter definition with label '", ENC,"'")
+      if (!exists("mu", ans$encounter[[i]])) {
+        stop("Parameter 'mu' must be specified for the negative_binomial in the encounter definition with label '", ENC, "'")
+      }
+      if (!exists("theta", ans$encounter[[i]])) {
+        stop("Parameter 'theta' must be specified for the negative_binomial in the encounter definition with label '", ENC, "'")
+      }
     } else if (casefold(ans$encounter[[i]]$type) %in% "normal") {
-      if(!exists("mu",ans$encounter[[i]]))
-        stop("Parameter 'mu' must be specified for the normal in the encounter definition with label '", ENC,"'")
-      if(!exists("sd",ans$encounter[[i]]))
-        stop("Parameter 'sd' must be specified for the normal in the encounter definition with label '", ENC,"'")
-  } else if (casefold(ans$encounter[[i]]$type) %in% "poisson") {
-      if(!exists("lambda",ans$encounter[[i]]))
-        stop("Parameter 'lambda' must be specified for the Poisson in the encounter definition with label '", ENC,"'")
-  } else if (casefold(ans$encounter[[i]]$type) %in% "zifpoisson") {
-      if(!exists("lambda",ans$encounter[[i]]))
-        stop("Parameter 'lambda' must be specified for the Poisson in the encounter definition with label '", ENC,"'")
-      if(!exists("p",ans$encounter[[i]]))
-        stop("Parameter 'p' must be specified for the Poisson in the encounter definition with label '", ENC,"'")
-  } else if (casefold(ans$encounter[[i]]$type) %in% "uniform") {
-      if(!exists("min",ans$encounter[[i]]))
-        stop("Parameter 'min' must be specified for the Uniform in the encounter definition with label '", ENC,"'")
-      if(!exists("max",ans$encounter[[i]]))
-        stop("Parameter 'max' must be specified for the Uniform in the encounter definition with label '", ENC,"'")
+      if (!exists("mu", ans$encounter[[i]])) {
+        stop("Parameter 'mu' must be specified for the normal in the encounter definition with label '", ENC, "'")
+      }
+      if (!exists("sd", ans$encounter[[i]])) {
+        stop("Parameter 'sd' must be specified for the normal in the encounter definition with label '", ENC, "'")
+      }
+    } else if (casefold(ans$encounter[[i]]$type) %in% "poisson") {
+      if (!exists("lambda", ans$encounter[[i]])) {
+        stop("Parameter 'lambda' must be specified for the Poisson in the encounter definition with label '", ENC, "'")
+      }
+    } else if (casefold(ans$encounter[[i]]$type) %in% "zifpoisson") {
+      if (!exists("lambda", ans$encounter[[i]])) {
+        stop("Parameter 'lambda' must be specified for the Poisson in the encounter definition with label '", ENC, "'")
+      }
+      if (!exists("p", ans$encounter[[i]])) {
+        stop("Parameter 'p' must be specified for the Poisson in the encounter definition with label '", ENC, "'")
+      }
+    } else if (casefold(ans$encounter[[i]]$type) %in% "uniform") {
+      if (!exists("min", ans$encounter[[i]])) {
+        stop("Parameter 'min' must be specified for the Uniform in the encounter definition with label '", ENC, "'")
+      }
+      if (!exists("max", ans$encounter[[i]])) {
+        stop("Parameter 'max' must be specified for the Uniform in the encounter definition with label '", ENC, "'")
+      }
     } else {
       stop("The specified distribution is not known")
     }
